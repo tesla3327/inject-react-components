@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello React!</title>
+    <script src="react.js"></script>
+    <script src="react-dom.js"></script>
+    <script src="injectr.js"></script>
+  </head>
+  <body>
+
+    <div id="mount-point-1"></div>
+    <div id="mount-point-2"></div>
+    <div id="mount-point-3"></div>
+
+    <script>
+
+      window.onload = function() {
+        Injectr.loadComponent('testComponent2-compiled.js')
+          .then(function(id) {
+            Injectr.mountComponent(id, document.getElementById('mount-point-1'));
+            Injectr.mountComponent(id, document.getElementById('mount-point-2'));
+          });
+
+        Injectr.loadComponent('testComponent-compiled.js')
+          .then(function(id) {
+            Injectr.mountComponent(id, document.getElementById('mount-point-3'));
+          });
+      }
+
+    </script>
+  </body>
+</html>

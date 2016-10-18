@@ -58,9 +58,9 @@ var Injectr = (function() {
   /**
    * Render the specified component where we want to.
    */
-  that.mountComponent = function(componentId, mountPoint) {
+  that.mountComponent = function(componentId, mountPoint, props) {
     ReactDOM.render(
-      React.createElement(injectedComponents[componentId]),
+      React.createElement(injectedComponents[componentId], props),
       mountPoint
     );
   };
